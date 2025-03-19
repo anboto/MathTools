@@ -1,0 +1,24 @@
+description "Simple and useful math tools for scientists and engineers\377";
+
+uses
+	CtrlLib,
+	Report,
+	PdfDraw,
+	GridCtrl,
+	CodeEditor,
+	ScatterCtrl;
+
+file
+	main.cpp,
+	MathTools.h,
+	MathTools.lay,
+	MathTools.iml,
+	Calculator.cpp,
+	DataHandling.cpp,
+	rc.rc,
+	srcdoc.tpp,
+	MathTools.t;
+
+mainconfig
+	"" = "GUI";
+
