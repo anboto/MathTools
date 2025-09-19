@@ -160,12 +160,16 @@ void TabData::OnUpdate() {
 	for (int r = 0; r < downL.gridDef.GetRowCount(); ++r) {
 		String name;
 		
-		int row = int(downL.gridDef.Get(r, 1)) - 1 - 1;
-		if (row < 0)
-			row = 0;
-		int col = int(downL.gridDef.Get(r, 3)) - 1;
-		name = AsString(downR.grid.Get(row, col));
-		downL.gridDef.Set(r, 5, name);
+		Value vrow = downL.gridDef.Get(r, 1);
+		Value vcol = downL.gridDef.Get(r, 3);
+		if (!IsNull(vrow) && !IsNull(vcol)) {
+			int row = int(vrow) - 1 - 1;
+			if (row < 0)
+				row = 0;
+			int col = int(vcol) - 1;
+			name = AsString(downR.grid.Get(row, col));
+			downL.gridDef.Set(r, 5, name);
+		}
 	}
 	
 	up.scatter.RemoveAllSeries();
