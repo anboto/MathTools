@@ -76,7 +76,7 @@ Unit EvalExpr2::TermUnit(CParserPP& p) {
 	String strId = ToLower(p.ReadId());
 	int id = units.Find(strId);
 	if (id < 0) 
-		EvalThrowError(p, Format(t_("Unknown unit '%s'"), strId));	
+		EvalThrowError(p, F(t_("Unknown unit '%s'"), strId));	
 	return units[id]; 
 }
 
@@ -204,10 +204,10 @@ String EvalExpr2::Eval2(String line, int numDecimals, int tabChars) {
 		newstr << TrimBoth(comment);	
 	} catch(CParser::Error e) {
 		lastError = e;
-		newstr << line << " " << Format(t_("Error %s"), GetLastError());
+		newstr << line << " " << F(t_("Error %s"), GetLastError());
 	} catch(Exc e) {
 		lastError = e;
-		newstr << line << " " << Format(t_("Error %s"), GetLastError());
+		newstr << line << " " << F(t_("Error %s"), GetLastError());
 	}
 	return newstr;
 }

@@ -45,7 +45,7 @@ void TabData::Init() {
 	
 	editGrid.SetCount(totalCols);
 	for(int i = 0; i < totalCols; i++) {
-		String name = Format(t_("Column %d"), i + 1);
+		String name = F(t_("Column %d"), i + 1);
 		downR.grid.AddColumn(name).Width(70).Edit(editGrid[i]);
 	}
 		
@@ -263,7 +263,7 @@ void TabData::OnOpen(bool force, bool updateButtons) {
 		return;
 	FindFile ff(fileName);
 	if(!ff || !ff.IsFile()) {
-		Exclamation(Format(t_("File '%s' does not exist"), DeQtf(fileName)));
+		Exclamation(F(t_("File '%s' does not exist"), DeQtf(fileName)));
 		return;
 	}
 	openMenuButton.PreSelect(fileName);
