@@ -324,7 +324,7 @@ void TabData::OnChangeFile(int delta) {
 	String fileName = ~down.editFile;
 	
 	String ext = GetFileExt(fileName);
-	FindFile ff(AppendFileName(GetFileFolder(fileName), "*" + ext));
+	FindFile ff(GetFileFolder(fileName) / "*" + ext);
 	Upp::Index<String> fileList;
 	do {
 		if (ff.IsFile()) 
